@@ -20,6 +20,3 @@ Click Here..! https://professor1416.github.io/Portfolio/
 
 ### ✍️ Random Dev Quote
 ![](https://quotes-github-readme.vercel.app/api?type=horizontal&theme=tokyonight)
-
----
-[![](https://visitcount.itsvg.in/api?id=professor1416&icon=6&color=2)](https://visitcount.itsvg.in)
