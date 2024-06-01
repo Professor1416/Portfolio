@@ -125,7 +125,16 @@
                     <textarea id="Message" name="Message" required=""></textarea><span class="highlight"></span><span class="bar"></span><label>Message</label>
                   </div>
                   <button id="sendMessage" name="sendMessage" type="submit">Send Message</button>
+                  <input type="hidden" id="subject" name="subject">
                 </form>
+                <script>
+  const form = document.querySelector('form');
+  form.addEventListener('submit', (e) => {
+    const userName = document.querySelector('#Name').value;
+    const subject = `${userName} Sent A Message From Your Portfolio.`;
+    document.querySelector('#subject').value = subject;
+  });
+</script>
               </div>
             </div>
           
