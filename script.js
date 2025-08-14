@@ -78,3 +78,43 @@ $(document).ready(function() {
   postcard.delay(2000).transition({'rotate':'360deg'}).transition({'x':'-3000px','y':'-1000px'}, 500, 'linear');
   
 });
+
+// Intersection Observer for scroll animations
+const observerOptions = {
+  threshold: 0.1
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('animate-fadeInUp');
+      observer.unobserve(entry.target);
+    }
+  });
+}, observerOptions);
+
+// Animate elements when they come into view
+document.querySelectorAll('.animate-on-scroll').forEach((element) => {
+  observer.observe(element);
+});
+
+// Dark mode toggle
+const toggleDarkMode = () => {
+  document.body.classList.toggle('dark-mode');
+  localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+};
+
+// Check user's preferred color scheme
+if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+  document.body.classList.add('dark-mode');
+}
+
+// Smooth scrolling for navigation
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    document.querySelector(this.getAttribute('href')).scrollIntoView({
+      behavior: 'smooth'
+    });
+  });
+});
